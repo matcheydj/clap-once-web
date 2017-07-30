@@ -3,7 +3,38 @@
     <div class='header-left-wrapper'>
       <%= image_tag("logos/clap-once-logo-1x-web_360.png", id: "header-logo") %>
       <ul class="nav-link-list">
-        <li class="nav-list-item"><a href="#">Dashboard</a></li>
+        <li class="nav-list-item">
+          <% if session[:page] == 'dashboard' %>
+            <a class="nav-active" href="/dashboard" data-turbolinks="false">Dashboard</a>
+          <% else %>
+            <a href="/dashboard" data-turbolinks="false">Dashboard</a>
+          <% end %>
+        </li>
+        <li class="nav-list-item">
+          <% if session[:page] == 'incidents' %>
+            <a class="nav-active" href="/incidents" data-turbolinks="false">Incidents</a>
+          <% else %>
+            <a  href="/incidents" data-turbolinks="false">Incidents</a>
+          <% end %>
+        </li>
+        </li>
+        <li class="nav-list-item">
+          <% if session[:page] == 'contacts' %>
+            <a class="nav-active" href="/contacts" data-turbolinks="false">Contacts</a>
+          <% else %>
+            <a  href="/contacts" data-turbolinks="false">Contacts</a>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="header-right-wrapper">
+      <ul class="nav-link-list">
+        <li class="nav-list-item">
+          <div class="header-picture"></div>
+        </li>
+        <li class="nav-list-item">
+          <div class="header-username">hello, thisisDom</a>
+        </li>
       </ul>
     </div>
   </div>
