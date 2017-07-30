@@ -1,0 +1,6 @@
+<div class="container-title">Incidents</div>
+<div id="incidents-container">
+  <% @incidents.each do |incident| %>
+    <%= react_component('Incident', { id: incident['id'], type: incident['type'], desc: incident['description'], victimCount: (pluralize(incident['victims'].size, "person")) }) %>
+  <% end %>
+</div>
