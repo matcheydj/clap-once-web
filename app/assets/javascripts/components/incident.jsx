@@ -1,25 +1,21 @@
+const rapidClient = Rapid.createClient('NDA1OWE0MWo1b3AzOThmLnJhcGlkLmlv');
+rapidClient.authorize('4059a41j5op398e');
+const coVictims = rapidClient.collection('clap-once-users-collection');
+
 class Incident extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      victims: [{
-        id: 1,
-        name: "Jasper"
-      }, {
-        id: 2,
-        name: "Steve"
-      }]
-    }
+  constructor(props){
+    super(props);
   }
 
   renderVictims(){
-    return this.state.victims.map((victim) => this.renderVictim(victim));
+    return this.props.victims.map((victim) => this.renderVictim(victim));
   }
 
   renderVictim(victim){
+
     return (
-      <div key={this.props.id} className="victim-wrapper">
-        <Victim id={victim.id} name={victim.name} />
+      <div key={victim.id} className="victim-wrapper">
+        <Victim id={victim.id} name={victim.name} incident_id={this.props.id} />
       </div>
     )
   }
@@ -27,8 +23,10 @@ class Incident extends React.Component {
   render() {
     return (
       <div className="incident-container">
-        <div className="incident-type">{this.props.type}</div>
-        <div className="incident-desc">{this.props.desc}</div>
+        <div data-incident-type={this.props.type} className="incident-info">
+          <div className="incident-type">{this.props.type}</div>
+          <div className="incident-desc">{this.props.desc}</div>
+        </div>
         <div className="incident-victims">
           {this.renderVictims()}
         </div>
