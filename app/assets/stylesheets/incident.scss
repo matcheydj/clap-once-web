@@ -2,27 +2,37 @@ $primary-color: #565460;
 $primary-accent-color: #94939C;
 $secondary-color: #E54C15;
 
+.incidents-container-title{
+  font-size: 2em;
+}
 .incident-container {
   border-color: rgba($primary-accent-color,.2);
   border-style: solid;
   border-width: 0px 0px 1px 0px;
-  padding: 10px 0px;
+  padding: 10px;
 
-  .incident-info[data-incident-type='fire']{
-    //background-image: image-url("incident-types/fire.jpg");
-  }
   .incident-info{
     display: flex;
     flex-direction: column;
     //background-repeat: no-repeat;
-
-    .incident-type{
-      font-size: 2.6em;
+    .incident-header{
+      align-items: center;
+      display: flex;
+      .incident-type{
+        display: inline-flex;
+        font-size: 1.6em;
+        margin-right: 8px;
+      }
+      .incident-victim-count{
+        display: inline-block;
+        font-size: 1em;
+      }
     }
     .incident-desc{
       font-size: 1.2em;
       padding:5px 2%;
     }
+
   }
   .incident-victims{
     display: flex;
