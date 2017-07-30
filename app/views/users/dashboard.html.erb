@@ -1,4 +1,6 @@
-<h1>In the Dashboard</h1>
+<div class="container-title">Incidents</div>
 <div id="incidents-container">
-  <%= react_component('Incident', { type: "fire".capitalize, desc: "Fire in the Hollywood Hills" }) %>
+  <% @incidents.each do |incident| %>
+    <%= react_component('Incident', { id: incident['id'], type: incident['type'], desc: incident['description'], victims: incident['victims'] }) %>
+  <% end %>
 </div>
