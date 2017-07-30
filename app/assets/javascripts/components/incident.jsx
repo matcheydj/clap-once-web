@@ -8,7 +8,15 @@ class Incident extends React.Component {
   }
 
   renderVictims(){
-    return this.props.victims.map((victim) => this.renderVictim(victim));
+    if (!this.props.victims){
+      return false;
+    }
+    let victims = this.props.victims.map((victim) => this.renderVictim(victim));
+    return (
+      <div className="incident-victims">
+        {victims}
+      </div>
+    )
   }
 
   renderVictim(victim){
@@ -24,12 +32,15 @@ class Incident extends React.Component {
     return (
       <div className="incident-container">
         <div data-incident-type={this.props.type} className="incident-info">
+        <div className="incident-header">
           <div className="incident-type">{this.props.type}</div>
+          <div className="incident-victim-count">({this.props.victimCount} affected)</div>
+
+          </div>
           <div className="incident-desc">{this.props.desc}</div>
+
         </div>
-        <div className="incident-victims">
-          {this.renderVictims()}
-        </div>
+        {this.renderVictims()}
       </div>
     );
   }
