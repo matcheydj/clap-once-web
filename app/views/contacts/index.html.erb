@@ -1,0 +1,10 @@
+<div class="container-title">Contacts</div>
+<div id="contacts-container">
+  <% if @contacts && @contacts.any? %>
+    <% @contacts.each do |contact| %>
+      <%= react_component('Contact', { id: contact['id'], name: contact['name'], phoneNumber: contact['phoneNumber'] }) %>
+    <% end %>
+  <% else %>
+    <h3>No Contacts</h3>
+  <% end %>
+</div>

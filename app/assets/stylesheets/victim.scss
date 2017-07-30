@@ -5,9 +5,8 @@ $safe-color: green;
 $pending-color: #c7c500;
 $unsafe-color: red;
 
-.victim-wrapper{
-  padding: 8px;
-  width: 25%;
+.victim-name{
+  font-weight: 600
 }
 
 .victim-status{
@@ -25,4 +24,9 @@ $unsafe-color: red;
 }
 .victim-status-wrapper{
   margin-left: 5px;
+}
+
+.victim-wrapper{
+  padding: 8px;
+  width: 25%;
 }

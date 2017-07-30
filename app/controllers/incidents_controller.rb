@@ -2,11 +2,17 @@ class IncidentsController < ApplicationController
   before_action :page_location
 
   def index
-    # response = ClaponceApiAdapter.index("<route to api>", { user: { id: session[:id] } }  )
-    # @incidents = JSON.parse(response.body)['incidents']
-    @incidents = [{ id: 2, type: "flood", description: "Flood in the SF", victims: [{ id: 2, name: "Jasper"}, {id: 1, name: "Steve"}] }, { id: 1, type: "fire", description: "Fire in the San Jose", victims: [{id: 1, name: "Steve"}] }].as_json
-
+    response = HTTParty.get("http://claponce-api.herokuapp.com/incidents")
+    if response.code == 1
+      @incidents = JSON.parse(response.body)['incidents']
+    else
+      @incidents = [{ id: 3, name: "Flash Flood", description: "Flood hits Silver Creek Area", affected_users: [{ id: 1, name: "Chinmay Banker", phoneNumer: "415-555-5555"}, {id: 2, name: "Joanna Joseph", phoneNumer: "415-555-5550"}] },
+        { id: 2, name: "Earthquake", description: "Massive Earthquake hits SF", affected_users: [{ id: 1, name: "Chinmay Banker", phoneNumer: "415-555-5555"}, {id: 2, name: "Joanna Joseph", phoneNumer: "415-555-5550"}] },
+      { id: 1, name: "Fire", description: "4-Alarm fire erupts in Oakland Hills", affected_users: [{ id: 1, name: "Chinmay Banker", phoneNumer: "415-555-5555"},{id: 2, name: "Joanna Joseph", phoneNumer: "415-555-5550"},{ id: 3, name: "Roger Li", phoneNumer: "415-555-5552"}]} ].as_json
+    end
   end
+
+  private
 
   def page_location
     session[:page] = 'incidents'

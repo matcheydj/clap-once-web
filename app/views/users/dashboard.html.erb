@@ -1,7 +1,11 @@
 <div class="container-title">Dashboard</div>
 <div id="incidents-container">
   <div class="incidents-container-title">Incidents</div>
-  <% @incidents.each do |incident| %>
-    <%= react_component('Incident', { id: incident['id'], type: incident['type'], desc: incident['description'], victims: incident['victims'],  victimCount: (pluralize(incident['victims'].size, "person"))  }) %>
+  <% if @incidents && @incidents.any? %>
+    <% @incidents.each do |incident| %>
+      <%= react_component('Incident', { id: incident['id'], type: incident['name'], desc: incident['description'], victims: incident['affected_users'],  victimCount: (pluralize(incident['affected_users'].size, "person"))  }) %>
+    <% end %>
+  <% else %>
+    <h3>No Incidents</h3>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 const rapidClient = Rapid.createClient('NDA1OWE0MWo1b3AzOThmLnJhcGlkLmlv');
 rapidClient.authorize('4059a41j5op398e');
-const coVictims = rapidClient.collection('clap-once-users-collection');
+const coVictims = rapidClient.collection('clap-once');
 
 class Incident extends React.Component {
   constructor(props){
