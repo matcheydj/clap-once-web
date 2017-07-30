@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ClapOnceWeb</title>
+    <%= favicon_link_tag 'logos/favicon.ico' %>
+    <title>ClapOnce</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+    <script src="https://unpkg.com/rapid-io/dist/rapid.umd.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <body>
-    <%= yield %>
+      <%= render template: 'layouts/_header.html.erb' %>
+      <main>
+        <div class="container">
+          <%= yield %>
+        </div>
+      </main>
   </body>
 </html>

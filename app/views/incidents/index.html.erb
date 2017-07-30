@@ -1,0 +1,10 @@
+<div class="container-title">Incidents</div>
+<div id="incidents-container">
+  <% if @incidents && @incidents.any? %>
+    <% @incidents.each do |incident| %>
+      <%= react_component('Incident', { id: incident['id'], type: incident['name'], desc: incident['description'], victimCount: (pluralize(incident['affected_users'].size, "person")) }) %>
+    <% end %>
+  <% else %>
+    <h3>No Incidents</h3>
+  <% end %>
+</div>
