@@ -1,0 +1,25 @@
+$primary-color: #565460;
+$primary-accent-color: #94939C;
+$secondary-color: #E54C15;
+$safe-color: green;
+$pending-color: yellow;
+$unsafe-color: red;
+
+.victim-wrapper{
+  padding: 8px;
+  width: 25%;
+}
+
+.victim-status{
+  font-weight: 600;
+  height: 20px;
+}
+.victim-status[data-status="unsafe"]{
+  color: $unsafe-color;
+}
+.victim-status[data-status="pending"]{
+  color: $pending-color;
+}
+.victim-status[data-status="safe"]{
+  color: $safe-color;
+}
