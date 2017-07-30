@@ -2,7 +2,7 @@ $primary-color: #565460;
 $primary-accent-color: #94939C;
 $secondary-color: #E54C15;
 $safe-color: green;
-$pending-color: yellow;
+$pending-color: #c7c500;
 $unsafe-color: red;
 
 .victim-wrapper{
@@ -22,4 +22,7 @@ $unsafe-color: red;
 }
 .victim-status[data-status="safe"]{
   color: $safe-color;
+}
+.victim-status-wrapper{
+  margin-left: 5px;
 }
